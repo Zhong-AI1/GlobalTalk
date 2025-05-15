@@ -1,10 +1,8 @@
 import streamlit as st
-from openai import OpenAI
 import os
+from openai import OpenAI
 
-# 從環境變數讀取 API KEY
 api_key = os.getenv("OPENAI_API_KEY")
-
 client = OpenAI(api_key=api_key)
 
 st.title("簡易測試")
