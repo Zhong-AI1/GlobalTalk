@@ -2,25 +2,16 @@ import streamlit as st
 from openai import OpenAI
 import os
 
-# 從環境變數讀取 API Key（請先設定 OPENAI_API_KEY）
+# 從環境變數讀取金鑰
+os.environ["OPENAI_API_KEY"] = "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"  # 如果沒在系統設定，這樣臨時設定也行
+
 client = OpenAI()
 
-st.title("簡易生成式AI聊天機器人")
+st.title("簡易測試")
 
-user_input = st.text_input("請輸入你的問題：")
-
-if st.button("送出"):
-    if user_input.strip() == "":
-        st.warning("請輸入問題")
-    else:
-        try:
-            response = client.chat.completions.create(
-                model="gpt-3.5-turbo",
-                messages=[
-                    {"role": "user", "content": user_input}
-                ]
-            )
-            answer = response.choices[0].message.content
-            st.markdown(f"**機器人回答:** {answer}")
-        except Exception as e:
-            st.error(f"發生錯誤: {e}")
+if st.button("跟AI打招呼"):
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[{"role": "user", "content": "你好"}]
+    )
+    st.write(response.choices[0].message.content)
