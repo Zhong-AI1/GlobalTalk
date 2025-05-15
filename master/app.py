@@ -5,7 +5,9 @@ import os
 from dotenv import load_dotenv
 from openai import OpenAI
 
-load_dotenv()  # 載入 .env
+load_dotenv()
+api_key = os.getenv("OPENAI_API_KEY")
+st.write("API Key 前10碼:", api_key[:10] if api_key else "沒有讀到金鑰")
 
 api_key = os.getenv("OPENAI_API_KEY")
 if not api_key:
