@@ -6,8 +6,6 @@ from dotenv import load_dotenv
 # 載入 .env 檔裡的環境變數
 load_dotenv()
 
-client = OpenAI(api_key="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")
-
 # 從環境變數讀取 API Key
 api_key = os.getenv("OPENAI_API_KEY")
 
